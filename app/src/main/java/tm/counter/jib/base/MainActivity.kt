@@ -16,6 +16,7 @@ import tm.counter.jib.base.theme.Primary
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,4 +26,5 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
 }
