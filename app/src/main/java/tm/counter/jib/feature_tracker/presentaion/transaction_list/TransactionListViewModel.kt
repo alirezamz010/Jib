@@ -1,7 +1,7 @@
 package tm.counter.jib.feature_tracker.presentaion.transaction_list
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -17,14 +17,11 @@ import javax.inject.Inject
 @HiltViewModel
 class TransactionListViewModel @Inject constructor(
     private val trackerUseCase: TrackerUseCases,
-    application: Application
-) : AndroidViewModel(application) {
+) : ViewModel() {
 
-    private val context get() = getApplication<Application>()
 
     private val _state = MutableStateFlow(TransactionListState())
     val state: StateFlow<TransactionListState> = _state.asStateFlow()
-
 
     private var getTransactionsJob: Job? = null
 
@@ -48,7 +45,9 @@ class TransactionListViewModel @Inject constructor(
 
         val dayTime = day * (24L * 60L * 60L * 1000L)
 
-        _state.update { it.copy(time = _state.value.time + dayTime) }
+        val time = _state.value.time
+
+        _state.update { it.copy(time = time + dayTime) }
 
     }
 

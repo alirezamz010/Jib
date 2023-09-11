@@ -66,10 +66,10 @@ fun TransactionListScreen(
 
     val calendar: Calendar = Calendar.getInstance()
     calendar.time = Date(state.time)
-    calendar.set(Calendar.HOUR_OF_DAY, 0);
-    calendar.set(Calendar.MINUTE, 0);
-    calendar.set(Calendar.SECOND, 0);
-    calendar.set(Calendar.MILLISECOND, 0);
+    calendar.set(Calendar.HOUR_OF_DAY, 0)
+    calendar.set(Calendar.MINUTE, 0)
+    calendar.set(Calendar.SECOND, 0)
+    calendar.set(Calendar.MILLISECOND, 0)
 
     val start = calendar.timeInMillis
     val end = (start + 86400000L)
@@ -114,7 +114,7 @@ fun TransactionListScreen(
                     shape = MaterialTheme.shapes.extraLarge,
                     colors = CardDefaults.cardColors(containerColor = Color.Transparent),
                     onClick = {
-                        if (!(today in start..end)) {
+                        if (today !in start..end) {
                             viewModel.updateTime(1)
                         }
                     }
@@ -309,7 +309,8 @@ fun TransactionListScreen(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(
-                                        bottom = 20.dp, top = if (index == 0) {
+                                        bottom = 20.dp,
+                                        top = if (index == 0) {
                                             38.dp
                                         } else {
                                             24.dp
