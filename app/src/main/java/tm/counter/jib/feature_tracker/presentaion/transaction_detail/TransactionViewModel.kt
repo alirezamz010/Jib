@@ -47,6 +47,11 @@ class TransactionViewModel @Inject constructor(
         _state.update { it.copy(title = title, enabled = true) }
     }
 
+    fun updatePlace(place: String) {
+        _state.update { it.copy(place = place, enabled = true) }
+    }
+
+
     init {
 
         if (transactionId != -1) {
@@ -196,6 +201,7 @@ class TransactionViewModel @Inject constructor(
                 trackerUseCase.insertTransaction(
                     TransactionModel(
                         title = state.value.title,
+                        place = state.value.place,
                         amount = amount,
                         time = state.value.date.time,
                         paymentType = state.value.paymentType.key
@@ -206,6 +212,7 @@ class TransactionViewModel @Inject constructor(
                     TransactionModel(
                         id = transactionId,
                         title = state.value.title,
+                        place = state.value.place,
                         amount = amount,
                         time = state.value.date.time,
                         paymentType = state.value.paymentType.key

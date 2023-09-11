@@ -25,6 +25,7 @@ fun AppScreen(activity: Context) {
             .fillMaxSize()
             .background(Primary),
     ) {
+
         val navController = rememberNavController()
 
         NavHost(

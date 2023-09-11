@@ -7,7 +7,7 @@ import tm.counter.jib.feature_tracker.domain.model.TransactionModel
 
 @Database(
     entities = [TransactionModel::class],
-    version = 1
+    version = 2
 )
 abstract class TransactionDatabase: RoomDatabase() {
 

@@ -45,6 +45,7 @@ import tm.counter.jib.base.theme.TextColor
 import tm.counter.jib.feature_tracker.presentaion.transaction_detail.component.RadioCard
 import tm.counter.jib.feature_tracker.presentaion.transaction_detail.component.TransactionAmountField
 import tm.counter.jib.feature_tracker.presentaion.transaction_detail.component.TransactionDateField
+import tm.counter.jib.feature_tracker.presentaion.transaction_detail.component.TransactionPlaceField
 import tm.counter.jib.feature_tracker.presentaion.transaction_detail.component.TransactionTitleField
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -122,6 +123,16 @@ fun TransactionScreen(
                         .padding(horizontal = 16.dp),
                     value = state.title,
                     onValueChange = { viewModel.updateTitle(it) }
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                TransactionPlaceField(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    value = state.place,
+                    onValueChange = { viewModel.updatePlace(it) }
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))

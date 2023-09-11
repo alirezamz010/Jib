@@ -9,6 +9,7 @@ data class TransactionModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val title: String,
+    val place: String,
     val amount: Double,
     val paymentType: String,
     val time: Long
