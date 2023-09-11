@@ -70,6 +70,7 @@ class TransactionViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             title = transaction.title,
+                            place = transaction.place,
                             amount = amount,
                             date = Date(transaction.time),
                             paymentType = if (transaction.paymentType == PaymentType.Card.key) {
